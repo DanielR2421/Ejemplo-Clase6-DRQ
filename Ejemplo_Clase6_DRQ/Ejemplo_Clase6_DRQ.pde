@@ -12,7 +12,7 @@ int y = 50;
 
 float level;
 float rad;
-
+float angle;
 
 void setup(){
  size(800, 800);
@@ -33,19 +33,26 @@ void draw(){
  //Retornando la amplitud de la 10ma frecuencia despues de ser transformada por la FFT
  level = fft.getBand(10);  
 
- rad = (level* width/20); 
+ rad = (level* width/30); 
  
  float r = random(20, 219);
  float g = random(18, 31);
  float b = random(43, 79);
  
+ //Experimentacion
+  translate(width/2, height/2);
+  rotate(radians(angle));
+  
  fill(255, 10);
  stroke(r, g, b);
  ellipse(x, y, rad, rad);
- 
-   
+ //Experimentación
+ //triangle(x, y, rad, rad, -x, -y);
+  
+  //Experimentación
+    angle++;
    x++;
- 
+  
  if(x > width){
   x = 0;
   y += 80;
